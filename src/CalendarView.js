@@ -1,6 +1,7 @@
 
 import React from 'react';
 import FullCalendar from 'fullcalendar';
+import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import $ from 'jquery';
 class CalendarView extends React.Component {
 	render() {
@@ -15,18 +16,16 @@ class CalendarView extends React.Component {
 		$('#calendar').fullCalendar({
 			header: {
 				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				center: 'title'
 			},
-			editable: true,
-			droppable: true, // this allows things to be dropped onto the calendar
-			drop: function () {
-				// is the "remove after drop" checkbox checked?
-				if ($('#drop-remove').is(':checked')) {
-					// if so, remove the element from the "Draggable Events" list
-					$(this).remove();
-				}
-			}
+			plugins:['resourceTimelinePlugin'],
+			defaultView: 'month',
+			views: {timeline:{
+				type:'timeGrid',
+				duration: {days: 365},
+				buttonText: 'year'
+			}},
+			editable: true
 		})
 	}
 }

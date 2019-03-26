@@ -1,12 +1,14 @@
 import React from 'react';
-import 'fullcalendar-reactwrapper/dist/css/fullcalendar.min.css';
-import CalendarView from './CalendarView.js';
+import GanttView from './GanttView.js';
 class App extends React.Component {
   render() {
     return (
       <div id="example-component">
-  
-        <CalendarView/>
+        <GanttView/>
+        {/* <CalendarTimeline/> */}
+          {/* <EventTimeline/> */}
+          {/* <YearCalendar/> */}
+        {/* <CalendarView/> */}
       </div>
     );
   }
